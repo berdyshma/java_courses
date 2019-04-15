@@ -32,7 +32,7 @@ public class ContactHelper extends HelperBase {
 
 	public void closeAlert() {wd.switchTo().alert().accept();	}
 
-	public void initContactModification() {click(By.xpath("(//img[@alt='Edit']"));	}
+	public void initContactModification() {click(By.xpath("(//img[@alt='Edit'])[1]"));}
 
 	public void submitContactModification() {	click(By.name("update"));		}
 	}
