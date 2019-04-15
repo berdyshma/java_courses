@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeMethod;
 
 public class TestBase {
 
-	protected final ApplicationManager app = new ApplicationManager();
+	public final ApplicationManager app = new ApplicationManager();
 
 	@BeforeMethod(alwaysRun = true)
 	public void setUp() throws Exception {
