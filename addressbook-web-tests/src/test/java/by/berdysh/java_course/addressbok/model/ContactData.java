@@ -1,4 +1,4 @@
-package by.berdysh.java_course.addressbok;
+package by.berdysh.java_course.addressbok.model;
 
 public class ContactData {
 	private final String firstName;

@@ -1,4 +1,4 @@
-package by.berdysh.java_course.addressbok;
+package by.berdysh.java_course.addressbok.model;
 
 public class GroupData {
 	private final String name;

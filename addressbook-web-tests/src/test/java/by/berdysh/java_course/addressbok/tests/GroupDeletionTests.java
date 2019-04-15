@@ -1,4 +1,4 @@
-package by.berdysh.java_course.addressbok;
+package by.berdysh.java_course.addressbok.tests;
 
 import org.testng.annotations.Test;
 
@@ -7,10 +7,10 @@ public class GroupDeletionTests extends TestBase {
 	@Test
 	public void testGroupDeletion() throws Exception {
 
-		goToGroupPage();
-		selectGroup();
-		deleteSelectedGroup();
-		returnToGroupPage();
+		app.goToGroupPage();
+		app.selectGroup();
+		app.deleteSelectedGroup();
+		app.returnToGroupPage();
 	}
 
 
