@@ -1,10 +1,10 @@
 package by.berdysh.java_course.addressbok.model;
 
 public class ContactData {
-	private final String firstName;
-	private final String lastName;
-	private final String email;
-	private final String mobile;
+	public final String firstName;
+	public final String lastName;
+	public final String email;
+	public final String mobile;
 
 	public ContactData(String firstName, String lastName, String email, String mobile) {
 		this.firstName = firstName;
