@@ -5,7 +5,11 @@ import org.testng.annotations.Test;
 
 public class ContactModificationTests extends TestBase {
 	@Test
-	public void testContactModification(){
+	public void testContactModification() {
+		app.getNavigationHelper().goToContactPage();
+		if (!app.getContactHelper().isThereAContact()) {
+			app.getContactHelper().createContact(new ContactData("TestName", "TestLast", "test@email.com", "123456789", "test1"), true);
+		}
 		app.getNavigationHelper().goToContactPage();
 		app.getContactHelper().initContactModification();
 		app.getContactHelper().fillContactForm(new ContactData("TestName", "TestLast", "test@email.com", "123456789", "null"), false);
