@@ -3,18 +3,29 @@ package by.berdysh.java_course.addressbok.model;
 import java.util.Objects;
 
 public class ContactData {
+	public final String id;
 	public final String firstName;
 	public final String lastName;
 	public final String email;
 	public final String mobile;
 	private String group;
 
+	public ContactData(String id,String firstName, String lastName, String email, String mobile, String group) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.mobile = mobile;
+		this.group = group;
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		ContactData that = (ContactData) o;
-		return Objects.equals(firstName, that.firstName) &&
+		return Objects.equals(id, that.id) &&
+						Objects.equals(firstName, that.firstName) &&
 						Objects.equals(lastName, that.lastName) &&
 						Objects.equals(email, that.email) &&
 						Objects.equals(mobile, that.mobile) &&
@@ -23,13 +34,14 @@ public class ContactData {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(firstName, lastName, email, mobile, group);
+		return Objects.hash(id, firstName, lastName, email, mobile, group);
 	}
 
 	@Override
 	public String toString() {
 		return "ContactData{" +
-						"firstName='" + firstName + '\'' +
+						"id='" + id + '\'' +
+						", firstName='" + firstName + '\'' +
 						", lastName='" + lastName + '\'' +
 						", email='" + email + '\'' +
 						", mobile='" + mobile + '\'' +
@@ -37,7 +49,12 @@ public class ContactData {
 						'}';
 	}
 
+	public String getId() {
+		return id;
+	}
+
 	public ContactData(String firstName, String lastName, String email, String mobile, String group) {
+		this.id = null;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
