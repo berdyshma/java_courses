@@ -1,10 +1,15 @@
 package by.berdysh.java_course.addressbok.appmanager;
 
 import by.berdysh.java_course.addressbok.model.ContactData;
+import by.berdysh.java_course.addressbok.model.GroupData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase {
 
@@ -23,7 +28,7 @@ public class ContactHelper extends HelperBase {
 		type(By.name("email"), contactData.getEmail());
 		type(By.name("mobile"), contactData.getMobile());
 
-		if (creation){
+		if (creation) {
 			new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
 		} else {
 			Assert.assertFalse(isElementPresent(By.name("new_group")));
@@ -57,7 +62,7 @@ public class ContactHelper extends HelperBase {
 
 	public void createContact(ContactData contact, boolean b) {
 		initContactCreation();
-		fillContactForm (contact,true);
+		fillContactForm(contact, true);
 		submitContactForm();
 	}
 
@@ -67,6 +72,19 @@ public class ContactHelper extends HelperBase {
 
 	public int getContactCount() {
 		return wd.findElements(By.name("selected[]")).size();
+	}
+
+	public List<ContactData> getContactList() {
+		List<ContactData> contacts = new ArrayList<>();
+		List<WebElement> rows = wd.findElements(By.xpath("//tr[@name='entry']"));
+		for (WebElement cell : rows) {
+			List<WebElement> cells = cell.findElements(By.tagName("td"));
+			String firstName = cells.get(2).getText();
+			String lastName = cells.get(3).getText();
+			ContactData contact = new ContactData("TestName", "TestLast", null, null, null);
+			contacts.add(contact);
+		}
+		return contacts;
 	}
 }
 
