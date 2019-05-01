@@ -12,8 +12,8 @@ public class ContactData {
 	public int id;
 	public final String firstName;
 	public final String lastName;
-	public final String email;
-	public final String mobile;
+	public String email;
+	public String mobile;
 	private String group;
 
 	public ContactData(int id,String firstName, String lastName, String email, String mobile, String group) {
@@ -23,6 +23,13 @@ public class ContactData {
 		this.email = email;
 		this.mobile = mobile;
 		this.group = group;
+	}
+
+	public ContactData(int id,String firstName, String lastName) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+
 	}
 
 	public int getId() {
