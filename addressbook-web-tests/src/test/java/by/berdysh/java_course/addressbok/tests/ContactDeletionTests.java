@@ -2,6 +2,7 @@ package by.berdysh.java_course.addressbok.tests;
 
 import by.berdysh.java_course.addressbok.model.ContactData;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Comparator;
@@ -9,12 +10,18 @@ import java.util.List;
 
 public class ContactDeletionTests extends TestBase {
 
-	@Test
-	public void testContactDeletion() {
+
+	@BeforeMethod
+	public void ensurePreconditions(){
 		app.getNavigationHelper().goToContactPage();
 		if (!app.getContactHelper().isThereAContact()) {
-			app.getContactHelper().createContact(new ContactData("TestName", "TestLast", "test@email.com", "123456789", "test1"),true);
+			app.getContactHelper().createContact(new ContactData("TestName", "TestLast", "test@email.com", "123456789", "test1"), true);
 		}
+	}
+
+	@Test
+	public void testContactDeletion() {
+
 		app.getNavigationHelper().goToContactPage();
 		List<ContactData> before = app.getContactHelper().getContactList();
 		app.getContactHelper().selectContact(before.size() - 1);
