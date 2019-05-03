@@ -25,7 +25,6 @@ public class GroupCreationTests extends TestBase {
 		before.sort(byID);
 		after.sort(byID);
 		Assert.assertEquals(before,after);
-		app.logOut();
-	}
+		}
 
 }
