@@ -1,6 +1,7 @@
 package by.berdysh.java_course.addressbok.appmanager;
 
 import by.berdysh.java_course.addressbok.model.ContactData;
+import by.berdysh.java_course.addressbok.model.Contacts;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -91,8 +92,8 @@ public class ContactHelper extends HelperBase {
 	}
 
 
-	public Set<ContactData> all() {
-		Set<ContactData> contacts = new HashSet<ContactData>();
+	public Contacts all() {
+		Contacts contacts = new Contacts();
 		List<WebElement> rows = wd.findElements(By.xpath("//tr[@name='entry']"));
 		for (WebElement cell : rows) {
 			List<WebElement> cells = cell.findElements(By.tagName("td"));
