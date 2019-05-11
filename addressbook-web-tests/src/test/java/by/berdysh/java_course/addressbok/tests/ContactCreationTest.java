@@ -16,16 +16,16 @@ public class ContactCreationTest extends TestBase {
 		List<ContactData> before = app.contact().list();
 		ContactData contact = new ContactData()
 						.withFirstName("TestName").withLastName("TestLast").withEmail("test@email.com").withMobile("123456789").withGroup("test1");
-		app.contact().create(contact,true);
+		app.contact().create(contact, true);
 		app.goTo().contactPage();
 		List<ContactData> after = app.contact().list();
 		Assert.assertEquals(after.size(), before.size() + 1);
 
-    before.add (contact);
+		before.add(contact);
 		Comparator<? super ContactData> byId = (c1, c2) -> Integer.compare(c1.getId(), c2.getId());
 		before.sort(byId);
 		after.sort(byId);
-		Assert.assertEquals(before,after);
+		Assert.assertEquals(before, after);
 
 	}
 

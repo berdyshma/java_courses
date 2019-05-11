@@ -14,7 +14,7 @@ public class ContactData {
 
 
 	public ContactData withId(int id) {
-		this.id = Integer.MAX_VALUE;
+		this.id = id;
 		return this;
 	}
 

@@ -10,7 +10,7 @@ public class GroupData {
 	public String footer;
 
 	public GroupData withId(int id) {
-		this.id = Integer.MAX_VALUE;
+		this.id = id;
 		return this;
 	}
 
@@ -28,7 +28,6 @@ public class GroupData {
 		this.footer = footer;
 		return this;
 	}
-
 
 	public int getId() {
 		return id;
