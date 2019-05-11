@@ -5,46 +5,47 @@ import java.util.Objects;
 public class ContactData {
 
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public int id;
-	public final String firstName;
-	public final String lastName;
+	public String firstName;
+	public String lastName;
 	public String email;
 	public String mobile;
-	private String group;
+	public String group;
 
-	public ContactData(int id,String firstName, String lastName, String email, String mobile, String group) {
-		this.id = id;
+
+	public ContactData withId(int id) {
+		this.id = Integer.MAX_VALUE;
+		return this;
+	}
+
+	public ContactData withFirstName(String firstName) {
 		this.firstName = firstName;
+		return this;
+	}
+
+	public ContactData withLastName(String lastName) {
 		this.lastName = lastName;
+		return this;
+	}
+
+	public ContactData withEmail(String email) {
 		this.email = email;
+		return this;
+	}
+
+	public ContactData withMobile(String mobile) {
 		this.mobile = mobile;
+		return this;
+	}
+
+	public ContactData withGroup(String group) {
 		this.group = group;
+		return this;
 	}
 
-	public ContactData(int id,String firstName, String lastName) {
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-
-	}
 
 	public int getId() {
 		return id;
-	}
-
-
-
-	public ContactData(String firstName, String lastName, String email, String mobile, String group) {
-		this.id = Integer.MAX_VALUE;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.mobile = mobile;
-		this.group = group;
 	}
 
 	public String getFirstName() {
@@ -78,6 +79,7 @@ public class ContactData {
 						", group='" + group + '\'' +
 						'}';
 	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
