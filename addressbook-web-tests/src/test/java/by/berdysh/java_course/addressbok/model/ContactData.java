@@ -11,16 +11,10 @@ public class ContactData {
 	public String email;
 	public String mobile;
 	public String group;
+	public String workPhone;
+	public String homePhone;
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-		ContactData that = (ContactData) o;
-		return id == that.id &&
-						Objects.equals(firstName, that.firstName) &&
-						Objects.equals(lastName, that.lastName);
-	}
+
 
 		public ContactData withId(int id) {
 		this.id = id;
@@ -44,6 +38,18 @@ public class ContactData {
 
 	public ContactData withMobile(String mobile) {
 		this.mobile = mobile;
+		return this;
+	}
+
+	public ContactData withWorkPhone(String workPhone) {
+		this.workPhone = workPhone;
+		return this;
+	}
+
+
+
+	public ContactData withHomePhone(String homePhone) {
+		this.homePhone = homePhone;
 		return this;
 	}
 
@@ -72,6 +78,13 @@ public class ContactData {
 	public String getMobile() {
 		return mobile;
 	}
+	public String getWorkPhone() {
+		return workPhone;
+	}
+
+	public String getHomePhone() {
+		return homePhone;
+	}
 
 	public String getGroup() {
 		return group;
@@ -91,6 +104,15 @@ public class ContactData {
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, firstName, lastName);
+	}
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		ContactData that = (ContactData) o;
+		return id == that.id &&
+						Objects.equals(firstName, that.firstName) &&
+						Objects.equals(lastName, that.lastName);
 	}
 
 }
