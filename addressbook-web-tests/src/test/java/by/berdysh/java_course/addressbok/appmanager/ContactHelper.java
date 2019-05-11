@@ -2,6 +2,7 @@ package by.berdysh.java_course.addressbok.appmanager;
 
 import by.berdysh.java_course.addressbok.model.ContactData;
 import by.berdysh.java_course.addressbok.model.Contacts;
+import by.berdysh.java_course.addressbok.model.Groups;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -69,18 +70,21 @@ public class ContactHelper extends HelperBase {
 		initContactCreation();
 		fillContactForm(contact, true);
 		submitContactForm();
+		contactCache = null;
 	}
 
 	public void modify(ContactData contact) {
 		initContactModification();
 		fillContactForm(contact, false);
 		submitContactModification();
+		contactCache = null;
 	}
 
 	public void delete(ContactData contact) {
 		selectContactById(contact.getId());
 		deleteSelectedContact();
 		closeAlert();
+		contactCache = null;
 	}
 
 	public boolean isThereAContact() {
@@ -91,19 +95,25 @@ public class ContactHelper extends HelperBase {
 		return wd.findElements(By.name("selected[]")).size();
 	}
 
+	private Contacts contactCache = null;
+
 
 	public Contacts all() {
-		Contacts contacts = new Contacts();
+		if (contactCache != null) {
+			return new Contacts (contactCache);
+		}
+
+		contactCache = new Contacts();
 		List<WebElement> rows = wd.findElements(By.xpath("//tr[@name='entry']"));
 		for (WebElement cell : rows) {
 			List<WebElement> cells = cell.findElements(By.tagName("td"));
 			String firstName = cells.get(2).getText();
 			String lastName = cells.get(1).getText();
 			int id = Integer.parseInt(cell.findElement(By.tagName("input")).getAttribute("value"));
-			contacts.add(new ContactData()
+			contactCache.add(new ContactData()
 							.withId(id).withFirstName(firstName).withLastName(lastName));
 		}
-		return contacts;
+		return new Contacts (contactCache);
 	}
 
 
