@@ -22,12 +22,7 @@ public class ContactData {
 						Objects.equals(lastName, that.lastName);
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(id, firstName, lastName);
-	}
-
-	public ContactData withId(int id) {
+		public ContactData withId(int id) {
 		this.id = id;
 		return this;
 	}
@@ -92,6 +87,10 @@ public class ContactData {
 						", mobile='" + mobile + '\'' +
 						", group='" + group + '\'' +
 						'}';
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, firstName, lastName);
 	}
 
 }
