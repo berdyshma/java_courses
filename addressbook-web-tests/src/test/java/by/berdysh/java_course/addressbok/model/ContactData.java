@@ -13,10 +13,10 @@ public class ContactData {
 	public String group;
 	public String workPhone;
 	public String homePhone;
+	public String allPhones;
 
 
-
-		public ContactData withId(int id) {
+	public ContactData withId(int id) {
 		this.id = id;
 		return this;
 	}
@@ -46,10 +46,13 @@ public class ContactData {
 		return this;
 	}
 
-
-
 	public ContactData withHomePhone(String homePhone) {
 		this.homePhone = homePhone;
+		return this;
+	}
+
+	public ContactData withAllPhones(String allPhones) {
+		this.allPhones = allPhones;
 		return this;
 	}
 
@@ -78,12 +81,17 @@ public class ContactData {
 	public String getMobile() {
 		return mobile;
 	}
+
 	public String getWorkPhone() {
 		return workPhone;
 	}
 
 	public String getHomePhone() {
 		return homePhone;
+	}
+
+	public String getAllPhones() {
+		return allPhones;
 	}
 
 	public String getGroup() {
@@ -101,10 +109,12 @@ public class ContactData {
 						", group='" + group + '\'' +
 						'}';
 	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, firstName, lastName);
 	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
