@@ -1,5 +1,6 @@
 package by.berdysh.java_course.addressbok.model;
 
+import java.io.File;
 import java.util.Objects;
 
 public class ContactData {
@@ -18,7 +19,14 @@ public class ContactData {
 	public String workPhone;
 	public String homePhone;
 	public String allPhones;
+	public File photo;
 
+
+
+	public ContactData withPhoto(File photo) {
+		this.photo = photo;
+		return this;
+	}
 
 	public ContactData withId(int id) {
 		this.id = id;
@@ -84,7 +92,9 @@ public class ContactData {
 		return this;
 	}
 
-
+	public File getPhoto() {
+		return photo;
+	}
 	public int getId() {
 		return id;
 	}
