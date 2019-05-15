@@ -1,12 +1,21 @@
 package by.berdysh.java_course.addressbok.model;
 
+import com.google.gson.annotations.Expose;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
+
 import java.util.Objects;
 
+@XStreamAlias("group")
 public class GroupData {
 
+	@XStreamOmitField
 	public int id;
+	@Expose
 	public String name;
+	@Expose
 	public String header;
+	@Expose
 	public String footer;
 
 	public GroupData withId(int id) {
