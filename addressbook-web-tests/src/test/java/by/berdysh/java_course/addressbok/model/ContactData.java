@@ -1,19 +1,27 @@
 package by.berdysh.java_course.addressbok.model;
 
+import com.google.gson.annotations.Expose;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
+
 import java.io.File;
 import java.util.Objects;
-
+@XStreamAlias("contact")
 public class ContactData {
 
-
+	@XStreamOmitField
 	public int id;
+	@Expose
 	public String firstName;
+	@Expose
 	public String lastName;
+	@Expose
 	public String email;
 	public String email2;
 	public String email3;
 	public String allEmails;
 	public String address;
+	@Expose
 	public String mobile;
 	public String group;
 	public String workPhone;
