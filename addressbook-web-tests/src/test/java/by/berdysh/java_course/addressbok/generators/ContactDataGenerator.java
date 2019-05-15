@@ -52,7 +52,7 @@ public class ContactDataGenerator {
 		for (int i = 0; i < count; i++) {
 			contacts.add(new ContactData().withFirstName(String.format("FirstName %s", i))
 							.withLastName(String.format("LastName %s", i)).withMobile(String.format("12345 %s", i))
-			        .withEmail(String.format("test@test.com %s", i)).withGroup(String.format("test1")));
+			        .withEmail(String.format("test@test.com %s", i)).withGroup(String.format("test %s", i)));
 		}
 		return contacts;
 	}

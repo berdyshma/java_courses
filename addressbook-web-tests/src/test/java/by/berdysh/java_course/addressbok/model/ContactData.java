@@ -150,12 +150,20 @@ public class ContactData {
 	@Override
 	public String toString() {
 		return "ContactData{" +
-						"id='" + id + '\'' +
+						"id=" + id +
 						", firstName='" + firstName + '\'' +
 						", lastName='" + lastName + '\'' +
 						", email='" + email + '\'' +
+						", email2='" + email2 + '\'' +
+						", email3='" + email3 + '\'' +
+						", allEmails='" + allEmails + '\'' +
+						", address='" + address + '\'' +
 						", mobile='" + mobile + '\'' +
 						", group='" + group + '\'' +
+						", workPhone='" + workPhone + '\'' +
+						", homePhone='" + homePhone + '\'' +
+						", allPhones='" + allPhones + '\'' +
+						", photo=" + photo +
 						'}';
 	}
 
