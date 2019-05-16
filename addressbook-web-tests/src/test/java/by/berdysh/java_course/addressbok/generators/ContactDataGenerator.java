@@ -1,7 +1,6 @@
 package by.berdysh.java_course.addressbok.generators;
 
 import by.berdysh.java_course.addressbok.model.ContactData;
-import by.berdysh.java_course.addressbok.model.GroupData;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
@@ -48,7 +47,7 @@ public class ContactDataGenerator {
 			saveAsXml(contacts, new File(file));
 		} else if (format.equals("json")) {
 			saveAsJson(contacts, new File(file));
-		}	else {
+		} else {
 			System.out.println("Unrecognized format" + format);
 		}
 
@@ -58,9 +57,9 @@ public class ContactDataGenerator {
 	private void saveAsJson(List<ContactData> contacts, File file) throws IOException {
 		Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
 		String json = gson.toJson(contacts);
-		Writer writer = new FileWriter(file);
-		writer.write(json);
-		writer.close();
+		try (Writer writer = new FileWriter(file)) {
+			writer.write(json);
+		}
 
 	}
 
@@ -68,18 +67,21 @@ public class ContactDataGenerator {
 		XStream xstream = new XStream();
 		xstream.processAnnotations(ContactData.class);
 		String xml = xstream.toXML(contacts);
-		Writer writer = new FileWriter(file);
-		writer.write(xml);
-		writer.close();
+		try (Writer writer = new FileWriter(file)) {
+			writer.write(xml);
+		}
+
 	}
 
 	private void saveAsCsv(List<ContactData> contacts, File file) throws IOException {
-		Writer writer = new FileWriter(file);
-		for (ContactData contact : contacts) {
-			writer.write(String.format("%s;%s;%s;%s \n", contact.getFirstName(),
-							contact.getLastName(), contact.getEmail(), contact.getMobile()));
+		try (Writer writer = new FileWriter(file)) {
+				for (ContactData contact : contacts) {
+				writer.write(String.format("%s;%s;%s;%s \n", contact.getFirstName(),
+								contact.getLastName(), contact.getEmail(), contact.getMobile()));
+			}
+
 		}
-		writer.close();
+
 	}
 
 	private List<ContactData> generateContacts(int count) {
@@ -87,7 +89,7 @@ public class ContactDataGenerator {
 		for (int i = 0; i < count; i++) {
 			contacts.add(new ContactData().withFirstName(String.format("FirstName %s", i))
 							.withLastName(String.format("LastName %s", i)).withMobile(String.format("12345 %s", i))
-			        .withEmail(String.format("test@test.com %s", i)));
+							.withEmail(String.format("test@test.com %s", i)));
 		}
 		return contacts;
 	}
