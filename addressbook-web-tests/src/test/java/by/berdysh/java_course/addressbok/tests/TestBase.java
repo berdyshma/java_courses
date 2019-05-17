@@ -5,10 +5,19 @@ import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
+import java.io.IOException;
+
 public class TestBase {
 
-	protected static final ApplicationManager app
-					= new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
+	public static ApplicationManager app;
+
+	static {
+		try {
+			app = new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	@BeforeSuite(alwaysRun = true)
 	public void setUp() throws Exception {

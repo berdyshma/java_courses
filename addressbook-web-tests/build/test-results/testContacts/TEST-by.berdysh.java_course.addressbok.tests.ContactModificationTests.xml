@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="by.berdysh.java_course.addressbok.tests.ContactModificationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-05-17T20:37:27" hostname="HEL00694" time="2.82">
+  <properties/>
+  <testcase name="testContactModification" classname="by.berdysh.java_course.addressbok.tests.ContactModificationTests" time="2.82"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

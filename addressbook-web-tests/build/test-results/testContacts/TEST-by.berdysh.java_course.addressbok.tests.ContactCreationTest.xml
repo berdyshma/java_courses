@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="by.berdysh.java_course.addressbok.tests.ContactCreationTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2019-05-17T20:37:16" hostname="HEL00694" time="10.745">
+  <properties/>
+  <testcase name="testContactCreation[0](ContactData{id=0, firstName='FirstName 0', lastName='LastName 0', email='test@test.com 0', email2='null', email3='null', allEmails='null', address='null', mobile='12345 0', group='null', workPhone='null', homePhone='null', allPhones='null', photo=null})" classname="by.berdysh.java_course.addressbok.tests.ContactCreationTest" time="4.603"/>
+  <testcase name="testContactCreation[1](ContactData{id=0, firstName='FirstName 1', lastName='LastName 1', email='test@test.com 1', email2='null', email3='null', allEmails='null', address='null', mobile='12345 1', group='null', workPhone='null', homePhone='null', allPhones='null', photo=null})" classname="by.berdysh.java_course.addressbok.tests.ContactCreationTest" time="3.373"/>
+  <testcase name="testContactCreation[2](ContactData{id=0, firstName='FirstName 2', lastName='LastName 2', email='test@test.com 2', email2='null', email3='null', allEmails='null', address='null', mobile='12345 2', group='null', workPhone='null', homePhone='null', allPhones='null', photo=null})" classname="by.berdysh.java_course.addressbok.tests.ContactCreationTest" time="2.769"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
