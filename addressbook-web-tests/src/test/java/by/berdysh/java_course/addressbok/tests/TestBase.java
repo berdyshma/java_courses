@@ -11,12 +11,11 @@ import org.testng.annotations.BeforeSuite;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class TestBase {
 
-	Logger logger = LoggerFactory.getLogger (TestBase.class);
+	Logger logger = LoggerFactory.getLogger(TestBase.class);
 
 	public static ApplicationManager app;
 
@@ -37,14 +36,15 @@ public class TestBase {
 	public void tearDown() throws Exception {
 		app.stop();
 	}
+
 	@BeforeMethod
-	public void logTestStart(Method m, Object[] p){
-		logger.info("Start test " + m.getName()+ "with parameters " + Arrays.asList(p));
+	public void logTestStart(Method m, Object[] p) {
+		logger.info("Start test " + m.getName() + "with parameters " + Arrays.asList(p));
 
 	}
 
-	@AfterMethod (alwaysRun = true)
-	public void logTestStop(Method m){
+	@AfterMethod(alwaysRun = true)
+	public void logTestStop(Method m) {
 		logger.info("Stop test " + m.getName());
 
 	}
