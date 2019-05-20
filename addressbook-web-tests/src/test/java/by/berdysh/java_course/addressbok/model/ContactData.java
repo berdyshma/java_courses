@@ -70,6 +70,20 @@ public class ContactData {
 	@Column (name = "deprecated", columnDefinition = "DATETIME")
 	public String deprecated;
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		ContactData that = (ContactData) o;
+		return id == that.id &&
+						Objects.equals(firstName, that.firstName) &&
+						Objects.equals(lastName, that.lastName);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, firstName, lastName);
+	}
 
 	@Override
 	public String toString() {
@@ -209,21 +223,6 @@ public class ContactData {
 
 	public String getGroup() {
 		return group;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id, firstName, lastName);
-	}
-
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-		ContactData that = (ContactData) o;
-		return id == that.id &&
-						Objects.equals(firstName, that.firstName) &&
-						Objects.equals(lastName, that.lastName);
 	}
 
 }
