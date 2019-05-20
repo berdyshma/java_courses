@@ -170,7 +170,11 @@ public class ContactData {
 	}
 
 	public File getPhoto() {
-		return new File (photo);
+		if (photo != null) {
+			return new File(photo);
+		} else {
+			return null;
+		}
 	}
 
 	public int getId() {
