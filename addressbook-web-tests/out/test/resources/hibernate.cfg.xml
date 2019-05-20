@@ -30,6 +30,7 @@
 
         <!-- Names the annotated entity class -->
         <mapping class="by.berdysh.java_course.addressbok.model.GroupData"/>
+        <mapping class="by.berdysh.java_course.addressbok.model.ContactData"/>
 
     </session-factory>
 

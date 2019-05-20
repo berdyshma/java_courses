@@ -32,6 +32,16 @@ public class GroupData {
 	@Type (type = "text")
 	public String footer;
 
+	@Override
+	public String toString() {
+		return "GroupData{" +
+						"id=" + id +
+						", name='" + name + '\'' +
+						", header='" + header + '\'' +
+						", footer='" + footer + '\'' +
+						'}';
+	}
+
 	public GroupData withId(int id) {
 		this.id = id;
 		return this;

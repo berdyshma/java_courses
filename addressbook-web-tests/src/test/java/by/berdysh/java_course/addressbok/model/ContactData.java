@@ -3,36 +3,87 @@ package by.berdysh.java_course.addressbok.model;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 import java.util.Objects;
+
 @XStreamAlias("contact")
+@Entity
+@Table(name = "addressbook")
 public class ContactData {
 
 	@XStreamOmitField
+	@Id
+	@Column (name = "id")
 	public int id;
+
+
 	@Expose
+	@Column (name = "firstname")
 	public String firstName;
+
 	@Expose
+	@Column (name = "lastname")
 	public String lastName;
+
 	@Expose
+	@Column (name = "email")
+	@Type(type = "text")
 	public String email;
+
+	@Column (name = "email2")
+	@Type(type = "text")
 	public String email2;
+
+	@Column (name = "email3")
+	@Type(type = "text")
 	public String email3;
+
+	@Transient
 	public String allEmails;
+
+	@Column (name = "address")
+	@Type(type = "text")
 	public String address;
+
 	@Expose
+	@Column (name = "mobile")
+	@Type(type = "text")
 	public String mobile;
+
+	@Transient
 	public String group;
+
+	@Column (name = "work")
+	@Type(type = "text")
 	public String workPhone;
+
+	@Column (name = "home")
+	@Type(type = "text")
 	public String homePhone;
+
+	@Transient
 	public String allPhones;
-	public File photo;
+
+	@Override
+	public String toString() {
+		return "ContactData{" +
+						"id=" + id +
+						", firstName='" + firstName + '\'' +
+						", lastName='" + lastName + '\'' +
+						'}';
+	}
+
+	@Column (name = "photo")
+	@Type(type = "text")
+	public String photo;
 
 
 
 	public ContactData withPhoto(File photo) {
-		this.photo = photo;
+		this.photo = photo.getPath();
 		return this;
 	}
 
@@ -101,8 +152,9 @@ public class ContactData {
 	}
 
 	public File getPhoto() {
-		return photo;
+		return new File (photo);
 	}
+
 	public int getId() {
 		return id;
 	}
@@ -153,26 +205,6 @@ public class ContactData {
 
 	public String getGroup() {
 		return group;
-	}
-
-	@Override
-	public String toString() {
-		return "ContactData{" +
-						"id=" + id +
-						", firstName='" + firstName + '\'' +
-						", lastName='" + lastName + '\'' +
-						", email='" + email + '\'' +
-						", email2='" + email2 + '\'' +
-						", email3='" + email3 + '\'' +
-						", allEmails='" + allEmails + '\'' +
-						", address='" + address + '\'' +
-						", mobile='" + mobile + '\'' +
-						", group='" + group + '\'' +
-						", workPhone='" + workPhone + '\'' +
-						", homePhone='" + homePhone + '\'' +
-						", allPhones='" + allPhones + '\'' +
-						", photo=" + photo +
-						'}';
 	}
 
 	@Override
