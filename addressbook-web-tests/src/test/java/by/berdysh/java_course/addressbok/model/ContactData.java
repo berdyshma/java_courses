@@ -67,6 +67,10 @@ public class ContactData {
 	@Transient
 	public String allPhones;
 
+	@Column (name = "deprecated", columnDefinition = "DATETIME")
+	public String deprecated;
+
+
 	@Override
 	public String toString() {
 		return "ContactData{" +
