@@ -1,7 +1,6 @@
 package by.berdysh.java_course.addressbok.tests;
 
 import by.berdysh.java_course.addressbok.model.ContactData;
-import by.berdysh.java_course.addressbok.model.GroupData;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
