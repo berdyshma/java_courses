@@ -2,6 +2,7 @@ package by.berdysh.java_course.addressbok.tests;
 
 import by.berdysh.java_course.addressbok.model.ContactData;
 import by.berdysh.java_course.addressbok.model.Contacts;
+import by.berdysh.java_course.addressbok.model.Groups;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -13,10 +14,11 @@ public class ContactDeletionTests extends TestBase {
 
 	@BeforeMethod
 	public void ensurePreconditions() {
+		Groups groups = app.db().groups();
 		if (app.db().contacts().size() == 0) {
 			app.goTo().contactPage();
 			app.contact().create(new ContactData()
-							.withFirstName("TestName").withLastName("TestLast").withEmail("test@email.com").withMobile("123456789").withGroup("test1"), true);
+							.withFirstName("TestName").withLastName("TestLast").withEmail("test@email.com").withMobile("123456789").inGroup(groups.iterator().next()), true);
 		}
 	}
 

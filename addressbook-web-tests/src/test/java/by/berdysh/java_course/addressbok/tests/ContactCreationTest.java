@@ -2,9 +2,12 @@ package by.berdysh.java_course.addressbok.tests;
 
 import by.berdysh.java_course.addressbok.model.ContactData;
 import by.berdysh.java_course.addressbok.model.Contacts;
+import by.berdysh.java_course.addressbok.model.GroupData;
+import by.berdysh.java_course.addressbok.model.Groups;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -56,11 +59,20 @@ public class ContactCreationTest extends TestBase {
 
 	}
 
+	@BeforeMethod
+	public void ensurePreconditions() {
+		if (app.db().groups().size() == 0) {
+			app.goTo().groupPage();
+			app.group().create(new GroupData().withName("test1"));
+		}
+	}
+
 
 	@Test(dataProvider = "validContactsFromJson")
 	public void testContactCreation(ContactData contact) throws Exception {
-		Contacts before = app.db().contacts();
 		File photo = new File("src/test/resources/photo.jpg");
+		Contacts before = app.db().contacts();
+
 		app.goTo().contactPage();
 		app.contact().create(contact, true);
 		app.goTo().contactPage();

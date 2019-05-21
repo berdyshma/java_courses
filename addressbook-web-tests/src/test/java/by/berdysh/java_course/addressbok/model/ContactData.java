@@ -3,11 +3,14 @@ package by.berdysh.java_course.addressbok.model;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.ManyToAny;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @XStreamAlias("contact")
 @Entity
@@ -53,8 +56,6 @@ public class ContactData {
 	@Type(type = "text")
 	public String mobile;
 
-	@Transient
-	public String group;
 
 	@Column (name = "work")
 	@Type(type = "text")
@@ -69,6 +70,11 @@ public class ContactData {
 
 	@Column (name = "deprecated", columnDefinition = "DATETIME")
 	public String deprecated;
+
+	@ManyToMany (fetch = FetchType.EAGER)
+	@JoinTable (name = "address_in_groups",
+					joinColumns = @JoinColumn (name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
+	public Set<GroupData> groups = new HashSet<GroupData>();
 
 	@Override
 	public boolean equals(Object o) {
@@ -164,10 +170,6 @@ public class ContactData {
 		return this;
 	}
 
-	public ContactData withGroup(String group) {
-		this.group = group;
-		return this;
-	}
 
 	public File getPhoto() {
 		if (photo != null) {
@@ -225,8 +227,12 @@ public class ContactData {
 		return allPhones;
 	}
 
-	public String getGroup() {
-		return group;
+	public Groups getGroups() {
+		return new Groups(groups);
 	}
 
+	public ContactData inGroup(GroupData group) {
+		groups.add(group);
+		return this;
+	}
 }

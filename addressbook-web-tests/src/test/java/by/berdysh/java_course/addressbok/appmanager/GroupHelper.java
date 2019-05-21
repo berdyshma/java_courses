@@ -1,16 +1,12 @@
 package by.berdysh.java_course.addressbok.appmanager;
 
-import by.berdysh.java_course.addressbok.model.Contacts;
 import by.berdysh.java_course.addressbok.model.GroupData;
 import by.berdysh.java_course.addressbok.model.Groups;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class GroupHelper extends HelperBase {
 

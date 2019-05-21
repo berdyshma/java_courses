@@ -1,6 +1,7 @@
 package by.berdysh.java_course.addressbok.tests;
 
 import by.berdysh.java_course.addressbok.model.ContactData;
+import by.berdysh.java_course.addressbok.model.Groups;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -16,11 +17,12 @@ public class ContactDataCheck extends TestBase {
 	@BeforeMethod
 	public void ensurePreconditions() {
 		app.goTo().contactPage();
+		Groups groups = app.db().groups();
 		if (app.contact().all().size() == 0) {
 			app.contact().create(new ContactData()
 							.withFirstName("TestName").withLastName("TestLast").withAddress("Address 5/55")
 							.withEmail("test@email.com").withEmail2("test2@email.com").withEmail3("test3@email.com")
-							.withMobile("+375(29)").withHomePhone("12 34 56").withWorkPhone("98-76-54").withGroup("test1"), true);
+							.withMobile("+375(29)").withHomePhone("12 34 56").withWorkPhone("98-76-54").inGroup(groups.iterator().next()), true);
 		}
 	}
 
