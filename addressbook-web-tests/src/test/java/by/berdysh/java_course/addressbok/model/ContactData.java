@@ -3,7 +3,6 @@ package by.berdysh.java_course.addressbok.model;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
-import org.hibernate.annotations.ManyToAny;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -19,61 +18,61 @@ public class ContactData {
 
 	@XStreamOmitField
 	@Id
-	@Column (name = "id")
+	@Column(name = "id")
 	public int id;
 
 
 	@Expose
-	@Column (name = "firstname")
+	@Column(name = "firstname")
 	public String firstName;
 
 	@Expose
-	@Column (name = "lastname")
+	@Column(name = "lastname")
 	public String lastName;
 
 	@Expose
-	@Column (name = "email")
+	@Column(name = "email")
 	@Type(type = "text")
 	public String email;
 
-	@Column (name = "email2")
+	@Column(name = "email2")
 	@Type(type = "text")
 	public String email2;
 
-	@Column (name = "email3")
+	@Column(name = "email3")
 	@Type(type = "text")
 	public String email3;
 
 	@Transient
 	public String allEmails;
 
-	@Column (name = "address")
+	@Column(name = "address")
 	@Type(type = "text")
 	public String address;
 
 	@Expose
-	@Column (name = "mobile")
+	@Column(name = "mobile")
 	@Type(type = "text")
 	public String mobile;
 
 
-	@Column (name = "work")
+	@Column(name = "work")
 	@Type(type = "text")
 	public String workPhone;
 
-	@Column (name = "home")
+	@Column(name = "home")
 	@Type(type = "text")
 	public String homePhone;
 
 	@Transient
 	public String allPhones;
 
-	@Column (name = "deprecated", columnDefinition = "DATETIME")
+	@Column(name = "deprecated", columnDefinition = "DATETIME")
 	public String deprecated;
 
-	@ManyToMany (fetch = FetchType.EAGER)
-	@JoinTable (name = "address_in_groups",
-					joinColumns = @JoinColumn (name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "address_in_groups",
+					joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
 	public Set<GroupData> groups = new HashSet<GroupData>();
 
 	@Override
@@ -100,10 +99,9 @@ public class ContactData {
 						'}';
 	}
 
-	@Column (name = "photo")
+	@Column(name = "photo")
 	@Type(type = "text")
 	public String photo;
-
 
 
 	public ContactData withPhoto(File photo) {
@@ -140,6 +138,7 @@ public class ContactData {
 		this.email3 = email3;
 		return this;
 	}
+
 	public ContactData withAllEmails(String allEmails) {
 		this.allEmails = allEmails;
 		return this;

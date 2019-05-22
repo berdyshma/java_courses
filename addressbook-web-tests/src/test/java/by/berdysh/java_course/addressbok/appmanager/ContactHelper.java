@@ -2,6 +2,7 @@ package by.berdysh.java_course.addressbok.appmanager;
 
 import by.berdysh.java_course.addressbok.model.ContactData;
 import by.berdysh.java_course.addressbok.model.Contacts;
+import by.berdysh.java_course.addressbok.model.GroupData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -158,5 +159,40 @@ public class ContactHelper extends HelperBase {
 		cells.get(7).findElement(By.tagName("a")).click();
 	}
 
+	public void addToGroup(ContactData contact, GroupData group) {
+		selectContactById(contact.getId());
+		initContactAddToGroup(group.getName());
+		goToGroupThroughAlert();
+	}
+
+	public void removeFromGroup(ContactData contact) {
+		selectContactById(contact.getId());
+		initContactDeleteFromGroup();
+		goToGroupThroughAlert();
+	}
+
+	public void initContactAddToGroup(String groupName) {
+		WebElement group =  wd.findElement(By.name("to_group"));
+		Select select = new Select(group);
+		select.selectByVisibleText(groupName);
+		click(By.name("add"));
+	}
+
+
+
+	public void initContactDeleteFromGroup() {
+		click(By.name("remove"));
+	}
+
+	public void goToGroupThroughAlert() {
+		wd.findElement(By.cssSelector("a[href^='./?group'")).click();
+	}
+
+
+	public void goIntoSelectedGroup(GroupData currentGroup) {
+		WebElement group =  wd.findElement(By.name("group"));
+		Select select = new Select(group);
+		select.selectByVisibleText("test1");
+	}
 }
 
