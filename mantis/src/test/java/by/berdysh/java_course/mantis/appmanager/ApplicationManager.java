@@ -31,18 +31,17 @@ public class ApplicationManager {
 		properties.load(new FileReader((new File(String.format("src/test/resources/%s.properties", target)))));
 
 
-
 	}
 
 
 	public void stop() {
-   if (wd != null){
-		 wd.quit();
-	 }
+		if (wd != null) {
+			wd.quit();
+		}
 
 	}
 
-	public HttpSession newSession(){
+	public HttpSession newSession() {
 		return new HttpSession(this);
 	}
 
@@ -51,14 +50,14 @@ public class ApplicationManager {
 	}
 
 	public RegistrationHelper registration() {
-		if (registrationHelper == null){
+		if (registrationHelper == null) {
 			registrationHelper = new RegistrationHelper(this);
 		}
 		return registrationHelper;
 	}
 
 	public WebDriver getDriver() {
-		if (wd ==null){
+		if (wd == null) {
 			if (browser.equals(BrowserType.FIREFOX)) {
 				wd = new FirefoxDriver();
 			} else if (browser.equals(BrowserType.CHROME)) {
