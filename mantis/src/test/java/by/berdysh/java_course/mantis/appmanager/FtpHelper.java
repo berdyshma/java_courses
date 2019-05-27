@@ -16,7 +16,7 @@ public class FtpHelper {
 	}
   public void upload (File file, String target, String backup) throws IOException {
 		ftp.connect(app.getProperty("ftp.host"));
-		ftp.login(app.getProperty("ftp.login"), app.getProperty("ftp.login"));
+		ftp.login(app.getProperty("ftp.login"), app.getProperty("ftp.password"));
 		ftp.deleteFile(backup);
 		ftp.rename(target, backup);
 		ftp.enterLocalPassiveMode();
@@ -26,8 +26,8 @@ public class FtpHelper {
 	public void restore (String backup, String target) throws IOException {
 		ftp.connect(app.getProperty("ftp.host"));
 		ftp.login(app.getProperty("ftp.login"), app.getProperty("ftp.password"));
-		ftp.deleteFile(backup);
-		ftp.rename(target, backup);
+		ftp.deleteFile(target);
+		ftp.rename(backup, target);
 		ftp.disconnect();
 	}
 }
