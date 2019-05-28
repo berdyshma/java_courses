@@ -1,11 +1,11 @@
 package by.berdysh.java_course.mantis.appmanager;
 
 import by.berdysh.java_course.mantis.model.MailMessage;
+import by.berdysh.java_course.mantis.model.UserData;
 import org.openqa.selenium.By;
 import ru.lanwen.verbalregex.VerbalExpression;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 public class ChangePasswordHelper extends HelperBase {
 
@@ -22,18 +22,8 @@ public class ChangePasswordHelper extends HelperBase {
 	}
 
 
-
-	public boolean testUserIsHere() {
-		try {
-			wd.findElement(By.linkText("berdysh"));
-		} catch (NoSuchElementException e) {
-			return false;
-		}
-		return true;
-	}
-
-	public void clickOnTestUserAndResetPass() {
-		click(By.linkText("berdysh"));
+	public void clickOnTestUserAndResetPass(UserData user) {
+		click(By.linkText(String.format("%s", user.getUsername())));
 		click(By.cssSelector("input[value='Reset Password']"));
 	}
 

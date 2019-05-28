@@ -1,9 +1,11 @@
 package by.berdysh.java_course.mantis.tests;
 
 import by.berdysh.java_course.mantis.model.MailMessage;
+import by.berdysh.java_course.mantis.model.UserData;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import ru.lanwen.verbalregex.VerbalExpression;
 
 import javax.mail.MessagingException;
 import java.io.IOException;
@@ -22,12 +24,17 @@ public class ChangePasswordTests extends TestBase {
 	@Test
 	public void testChangePassword() throws MessagingException, IOException {
 		app.changePass().loginAsAdminAndManageUsers();
-		app.changePass().clickOnTestUserAndResetPass();
+		UserData selectedUser = app.db().users().stream().filter((u) -> !u.getUsername().contains("administrator")).findAny().get();
+		String email = selectedUser.getEmail();
+		String username = selectedUser.getUsername();
+		app.changePass().clickOnTestUserAndResetPass(selectedUser);
 		List<MailMessage> newMessages = app.mail().waitForMail(1, 10000);
-		String resetLink = app.changePass().findResetPasswordLink(newMessages, "berdysh@localhost.localdomain");
-		app.changePass().changePassword(resetLink, "pass123");
-		assertTrue(app.newSession().login("berdysh", "pass123"));
+		String resetLink = app.changePass().findResetPasswordLink(newMessages, email);
+		app.changePass().changePassword(resetLink, "password");
+		assertTrue(app.newSession().login(username, "password"));
 	}
+
+
 
 	@AfterMethod(alwaysRun = true)
 	public void stopMailServer() {

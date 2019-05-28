@@ -22,6 +22,7 @@ public class ApplicationManager {
 	private MailHelper mailHelper;
 	private JamesHelper jamesHelper;
 	private ChangePasswordHelper changePass;
+	private DbHelper dbHelper;
 
 
 	public ApplicationManager(String browser) throws IOException {
@@ -103,5 +104,8 @@ public class ApplicationManager {
 			changePass = new ChangePasswordHelper(this);
 		}
 		return changePass;
+	}
+	public DbHelper db() {
+		return dbHelper;
 	}
 }
