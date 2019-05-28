@@ -37,21 +37,21 @@ public class JamesHelper {
 		write("verify " + name);
 		String result = readUntil("exist");
 		closeTelnetSession();
-		return result.trim().equals("User " + name + "exist");
+		return result.trim().equals("User " + name + " exist");
 
 	}
 
 	public void createUser(String name, String passwd) throws IOException {
 		initTelnetSession();
 		write("adduser " + name + "" + passwd);
-		String result = readUntil("User " + name + "added");
+		String result = readUntil("User " + name + " added");
 		closeTelnetSession();
 	}
 
 	public void deleteUser(String name) throws IOException {
 		initTelnetSession();
 		write("deluser " + name);
-		String result = readUntil("User " + name + "deleted");
+		String result = readUntil("User " + name + " deleted");
 		closeTelnetSession();
 	}
 
@@ -70,15 +70,15 @@ public class JamesHelper {
 		}
 		readUntil("Login id:");
 		write("");
-		readUntil("Password id:");
+		readUntil("Password:");
 		write("");
 
 		readUntil("Login id:");
 		write(login);
-		readUntil("Password id:");
+		readUntil("Password:");
 		write(password);
 
-		readUntil("Welcome " + login + ". HELP for a list of commands");
+		readUntil("Welcome " +login+ ". HELP for a list of commands");
 
 	}
 
@@ -153,7 +153,7 @@ public class JamesHelper {
 				e.printStackTrace();
 			}
 		}
-		throw new Error("No new mail :(");
+		throw new Error("No mail :(");
 	}
 
 	public List<MailMessage> getAllMail(String username, String password) throws MessagingException {
