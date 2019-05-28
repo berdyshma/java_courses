@@ -21,6 +21,7 @@ public class ApplicationManager {
 	private FtpHelper ftp;
 	private MailHelper mailHelper;
 	private JamesHelper jamesHelper;
+	private ChangePasswordHelper changePass;
 
 
 	public ApplicationManager(String browser) throws IOException {
@@ -95,5 +96,12 @@ public class ApplicationManager {
 			wd.get(properties.getProperty("web.baseUrl"));
 		}
 		return wd;
+	}
+
+	public ChangePasswordHelper changePass() {
+		if (changePass == null) {
+			changePass = new ChangePasswordHelper(this);
+		}
+		return changePass;
 	}
 }
