@@ -1,13 +1,11 @@
 package by.berdysh.java_course.mantis.appmanager;
 
-import by.berdysh.java_course.mantis.model.MailMessage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
 import java.io.File;
-import java.util.List;
 
 public class HelperBase {
 	protected ApplicationManager app;
@@ -34,12 +32,13 @@ public class HelperBase {
 		}
 
 	}
+
 	protected void attach(By locator, File file) {
 		if (file != null) {
-				wd.findElement(locator).sendKeys(file.getAbsolutePath());
-			}
-
+			wd.findElement(locator).sendKeys(file.getAbsolutePath());
 		}
+
+	}
 
 
 	public boolean isAlertPresent() {
@@ -60,4 +59,4 @@ public class HelperBase {
 		}
 	}
 
-	}
+}

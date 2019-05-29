@@ -1,7 +1,7 @@
 package by.berdysh.java_course.mantis.appmanager;
 
-import by.berdysh.java_course.mantis.model.UserData;
 import by.berdysh.java_course.mantis.model.Users;
+import by.berdysh.java_course.mantis.model.UsersData;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
@@ -25,8 +25,8 @@ public class DbHelper {
 	public Users users() {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
-		List<UserData> result = session.createQuery("from UsersData").list();
-		for (UserData user : result) {
+		List<UsersData> result = session.createQuery("from UsersData").list();
+		for (UsersData user : result) {
 			System.out.println(user);
 		}
 		session.getTransaction().commit();

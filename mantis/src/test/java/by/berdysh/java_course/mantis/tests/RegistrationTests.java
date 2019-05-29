@@ -1,8 +1,6 @@
 package by.berdysh.java_course.mantis.tests;
 
 import by.berdysh.java_course.mantis.model.MailMessage;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.lanwen.verbalregex.VerbalExpression;
 
@@ -19,7 +17,7 @@ public class RegistrationTests extends TestBase {
 		app.mail().start();
 	}
 
-	@Test (enabled = false)
+	@Test(enabled = false)
 	public void testRegistration1() throws InterruptedException, MessagingException, IOException {
 		long now = System.currentTimeMillis();
 		String user = String.format("user%s", now);

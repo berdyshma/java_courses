@@ -11,7 +11,6 @@ import org.apache.http.impl.client.LaxRedirectStrategy;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,15 +36,17 @@ public class HttpSession {
 		String body = getTextFrom(response);
 		return body.contains(String.format("<span class=\"italic\">%s</span>", username));
 	}
-	private String getTextFrom(CloseableHttpResponse response) throws IOException{
-		try{
+
+	private String getTextFrom(CloseableHttpResponse response) throws IOException {
+		try {
 			return EntityUtils.toString(response.getEntity());
-		}finally{
+		} finally {
 			response.close();
 		}
 	}
-	public boolean isLoggedInAs (String username) throws IOException{
-		HttpGet get = new HttpGet (app.getProperty("web.baseUrl") + "/login.php");
+
+	public boolean isLoggedInAs(String username) throws IOException {
+		HttpGet get = new HttpGet(app.getProperty("web.baseUrl") + "/login.php");
 		CloseableHttpResponse response = httpclient.execute(get);
 		String body = getTextFrom(response);
 		return body.contains(String.format("<span class=\"italic\">%s</span>", username));

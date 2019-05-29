@@ -1,7 +1,7 @@
 package by.berdysh.java_course.mantis.appmanager;
 
 import by.berdysh.java_course.mantis.model.MailMessage;
-import by.berdysh.java_course.mantis.model.UserData;
+import by.berdysh.java_course.mantis.model.UsersData;
 import org.openqa.selenium.By;
 import ru.lanwen.verbalregex.VerbalExpression;
 
@@ -22,7 +22,7 @@ public class ChangePasswordHelper extends HelperBase {
 	}
 
 
-	public void clickOnTestUserAndResetPass(UserData user) {
+	public void clickOnTestUserAndResetPass(UsersData user) {
 		click(By.linkText(String.format("%s", user.getUsername())));
 		click(By.cssSelector("input[value='Reset Password']"));
 	}

@@ -69,19 +69,19 @@ public class ApplicationManager {
 		return ftp;
 	}
 
-	public MailHelper mail(){
-		if (mailHelper == null){
+	public MailHelper mail() {
+		if (mailHelper == null) {
 			mailHelper = new MailHelper(this);
 		}
-     return mailHelper;
-		}
+		return mailHelper;
+	}
 
-		public JamesHelper james(){
-		if (jamesHelper == null){
+	public JamesHelper james() {
+		if (jamesHelper == null) {
 			jamesHelper = new JamesHelper(this);
 		}
 		return jamesHelper;
-		}
+	}
 
 	public WebDriver getDriver() {
 		if (wd == null) {
@@ -105,7 +105,11 @@ public class ApplicationManager {
 		}
 		return changePass;
 	}
+
 	public DbHelper db() {
+		if (dbHelper == null) {
+			dbHelper = new DbHelper();
+		}
 		return dbHelper;
 	}
 }

@@ -2,18 +2,14 @@ package by.berdysh.java_course.mantis.appmanager;
 
 import by.berdysh.java_course.mantis.model.MailMessage;
 import org.apache.commons.net.telnet.TelnetClient;
-import org.subethamail.wiser.WiserMessage;
 
 import javax.mail.*;
-import javax.mail.internet.MimeMessage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import static by.berdysh.java_course.mantis.appmanager.MailHelper.toModelMail;
 
 public class JamesHelper {
 	public ApplicationManager app;
