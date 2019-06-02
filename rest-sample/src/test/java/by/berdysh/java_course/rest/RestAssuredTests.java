@@ -16,7 +16,7 @@ import java.util.Set;
 
 import static org.testng.Assert.assertEquals;
 
-public class RestAssuredTests {
+public class RestAssuredTests extends TestBase {
 
 
 	@BeforeClass
@@ -28,7 +28,7 @@ public class RestAssuredTests {
 	@Test
 
 	public void testCreateIssue() throws IOException {
-
+		skipIfNotFixed(1240);
 		Set<Issue> oldIssues = getIssues();
 		Issue newIssue = new Issue().withSubject("Test issue").withDescription("Test description");
 		int issueId = createIssue(newIssue);
@@ -46,7 +46,7 @@ public class RestAssuredTests {
 		return new Gson().fromJson(issues, new TypeToken<Set<Issue>>() {}.getType());
 	}
 
-	
+
 	private int createIssue(Issue newIssue) throws IOException {
 		String json = RestAssured.given()
 						.parameter("subject", newIssue.getSubject())
