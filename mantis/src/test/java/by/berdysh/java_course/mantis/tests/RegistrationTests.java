@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import ru.lanwen.verbalregex.VerbalExpression;
 
 import javax.mail.MessagingException;
+import javax.xml.rpc.ServiceException;
 import java.io.IOException;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class RegistrationTests extends TestBase {
 	}
 
 	@Test
-	public void testRegistration() throws InterruptedException, MessagingException, IOException {
+	public void testRegistration() throws InterruptedException, MessagingException, IOException, ServiceException {
 		long now = System.currentTimeMillis();
 		String user = String.format("user%s", now);
 		String password = "password";
