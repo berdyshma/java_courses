@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="by.berdysh.java_course.sandbox.EquationTests" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-06-09T14:11:16" hostname="HEL00694" time="0.003">
+  <properties/>
+  <testcase name="test0" classname="by.berdysh.java_course.sandbox.EquationTests" time="0.003"/>
+  <testcase name="test1" classname="by.berdysh.java_course.sandbox.EquationTests" time="0.0"/>
+  <testcase name="test2" classname="by.berdysh.java_course.sandbox.EquationTests" time="0.0"/>
+  <testcase name="testConstant" classname="by.berdysh.java_course.sandbox.EquationTests" time="0.0"/>
+  <testcase name="testLinear" classname="by.berdysh.java_course.sandbox.EquationTests" time="0.0"/>
+  <testcase name="testZero" classname="by.berdysh.java_course.sandbox.EquationTests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
