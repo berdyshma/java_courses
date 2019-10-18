@@ -4,8 +4,26 @@
     <bytecodeTargetLevel>
       <module name="addressbook-web-tests.main" target="1.8" />
       <module name="addressbook-web-tests.test" target="1.8" />
+      <module name="by.berdysh.java-example.main" target="1.8" />
+      <module name="by.berdysh.java-example.test" target="1.8" />
+      <module name="by.stqa.java-example.main" target="1.8" />
+      <module name="by.stqa.java-example.test" target="1.8" />
       <module name="github-sample.main" target="1.8" />
       <module name="github-sample.test" target="1.8" />
+      <module name="java-example.main" target="1.8" />
+      <module name="java-example.test" target="1.8" />
+      <module name="java_courses.addressbook-web-tests.main" target="1.8" />
+      <module name="java_courses.addressbook-web-tests.test" target="1.8" />
+      <module name="java_courses.github-sample.main" target="1.8" />
+      <module name="java_courses.github-sample.test" target="1.8" />
+      <module name="java_courses.mantis.main" target="1.8" />
+      <module name="java_courses.mantis.test" target="1.8" />
+      <module name="java_courses.rest-sample.main" target="1.8" />
+      <module name="java_courses.rest-sample.test" target="1.8" />
+      <module name="java_courses.sandbox.main" target="1.8" />
+      <module name="java_courses.sandbox.test" target="1.8" />
+      <module name="java_courses.soap-sample.main" target="1.8" />
+      <module name="java_courses.soap-sample.test" target="1.8" />
       <module name="mantis-tests.main" target="1.8" />
       <module name="mantis-tests.test" target="1.8" />
       <module name="mantis.main" target="1.8" />
@@ -14,6 +32,8 @@
       <module name="rest-sample.test" target="1.8" />
       <module name="sandbox.main" target="1.8" />
       <module name="sandbox.test" target="1.8" />
+      <module name="selenium.main" target="1.8" />
+      <module name="selenium.test" target="1.8" />
       <module name="soap-sample.main" target="1.8" />
       <module name="soap-sample.test" target="1.8" />
     </bytecodeTargetLevel>

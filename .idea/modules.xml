@@ -8,6 +8,16 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/github-sample.iml" filepath="$PROJECT_DIR$/.idea/modules/github-sample.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/github-sample.main.iml" filepath="$PROJECT_DIR$/.idea/modules/github-sample.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/github-sample.test.iml" filepath="$PROJECT_DIR$/.idea/modules/github-sample.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java_courses.github-sample.main.iml" filepath="$PROJECT_DIR$/.idea/modules/java_courses.github-sample.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java_courses.github-sample.test.iml" filepath="$PROJECT_DIR$/.idea/modules/java_courses.github-sample.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java_courses.mantis.main.iml" filepath="$PROJECT_DIR$/.idea/modules/java_courses.mantis.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java_courses.mantis.test.iml" filepath="$PROJECT_DIR$/.idea/modules/java_courses.mantis.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java_courses.rest-sample.main.iml" filepath="$PROJECT_DIR$/.idea/modules/java_courses.rest-sample.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java_courses.rest-sample.test.iml" filepath="$PROJECT_DIR$/.idea/modules/java_courses.rest-sample.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java_courses.sandbox.main.iml" filepath="$PROJECT_DIR$/.idea/modules/java_courses.sandbox.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java_courses.sandbox.test.iml" filepath="$PROJECT_DIR$/.idea/modules/java_courses.sandbox.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java_courses.soap-sample.main.iml" filepath="$PROJECT_DIR$/.idea/modules/java_courses.soap-sample.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java_courses.soap-sample.test.iml" filepath="$PROJECT_DIR$/.idea/modules/java_courses.soap-sample.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis.main.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis.test.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis.test.iml" />
@@ -17,6 +27,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/sandbox.iml" filepath="$PROJECT_DIR$/.idea/modules/sandbox.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/sandbox.main.iml" filepath="$PROJECT_DIR$/.idea/modules/sandbox.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/sandbox.test.iml" filepath="$PROJECT_DIR$/.idea/modules/sandbox.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/selenium.iml" filepath="$PROJECT_DIR$/.idea/modules/selenium.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/selenium.main.iml" filepath="$PROJECT_DIR$/.idea/modules/selenium.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/selenium.test.iml" filepath="$PROJECT_DIR$/.idea/modules/selenium.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/soap-sample.iml" filepath="$PROJECT_DIR$/.idea/modules/soap-sample.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/soap-sample.main.iml" filepath="$PROJECT_DIR$/.idea/modules/soap-sample.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/soap-sample.test.iml" filepath="$PROJECT_DIR$/.idea/modules/soap-sample.test.iml" />
