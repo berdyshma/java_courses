@@ -33,14 +33,13 @@ public class AdminPanel {
 		List<WebElement> menuItems = driver.findElements(By.cssSelector("ul#box-apps-menu > li"));
 		for (int i = 1; i <= menuItems.size(); i++) {
 			WebElement menuItem = driver.findElement(By.cssSelector("ul#box-apps-menu > li:nth-child(" + i + ")"));
-			String menuItemName = menuItem.getText();
 			menuItem.click();
 
-
-			List<WebElement> menuSubItems = driver.findElements(By.cssSelector("ul#box-apps-menu > li:nth-child(" + i + ") li"));
-			for (int j = 2; j <= menuSubItems.size(); j++) {
-				WebElement menuSubItem = driver.findElement(By.cssSelector("ul#box-apps-menu > li:nth-child(" + i + ") li:nth-child(" + j + ")"));
-				String menuSubItemName = menuSubItem.getText();
+			List<WebElement> menuSubItems = driver.findElements(By.cssSelector("ul#box-apps-menu > li:nth-child(" + i + ") > li"));
+			for (int j = 1; j <= menuSubItems.size(); j++) {
+				WebElement menuSubItem = driver.findElement(By.cssSelector("ul#box-apps-menu > li:nth-child(" + i + ") > li:nth-child(" + j + ")"));
+				WebElement pageHeader = driver.findElement(By.cssSelector("h1"));
+				pageHeader.getText();
 				menuSubItem.click();
 
 
