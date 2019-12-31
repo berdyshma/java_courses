@@ -9,8 +9,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 public class Stickers {
 
@@ -32,19 +34,18 @@ public class Stickers {
 
 	@Test
 	public void Stickers() {
-		List<String> failedItems = new ArrayList<>();
 		driver.get("http://localhost/litecart/en/");
 		List<WebElement> ducks = driver.findElements(By.cssSelector("li.product"));
 		for (WebElement duck : ducks) {
 			List<WebElement> stickers = duck.findElements(By.cssSelector("div.sticker"));
-
-			if (stickers.size() != 1) {
-				failedItems.add(duck.findElement(By.cssSelector("div.name")).getText());
-			}
+			System.out.println(stickers.size());
+			assertThat(stickers.size(), is(1));
 
 		}
 
+
 	}
+
 
 	@After
 	public void stop() {
@@ -52,3 +53,4 @@ public class Stickers {
 		driver = null;
 	}
 }
+
