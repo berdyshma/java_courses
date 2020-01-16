@@ -34,16 +34,14 @@ public class TimeZones {
 	@Test
 	public void test_1A_countriesAreSorted() {
 		driver.get("http://localhost/litecart/admin/?app=countries&doc=countries");
-		List<WebElement> nameCells = driver.findElements(By.cssSelector("form[name=countries_form] " +
-						"tr.row td:nth-child(5) a"));
+		List<WebElement> nameCells = driver.findElements(By.cssSelector("form[name=countries_form] tr.row td:nth-child(5) a"));
 
-		Assert.assertTrue("Countries are not sorted", isColumnSorted(nameCells));
+		Assert.assertTrue(isColumnSorted(nameCells));
 
 	}
 
 	@Test
 	public void test_1B_zonesAreSorted() {
-		List<String> failedItems = new ArrayList<>();
 
 		List<String> links = new ArrayList<>();
 		driver.get("http://localhost/litecart/admin/?app=countries&doc=countries");
@@ -59,19 +57,13 @@ public class TimeZones {
 			List<WebElement> zoneNameCells = driver.findElements(By.cssSelector
 							("table#table-zones td:nth-child(3)"));
 			zoneNameCells.remove(zoneNameCells.size() - 1);
-
-			if (!isColumnSorted(zoneNameCells)) {
-				failedItems.add(link);
-			}
+			Assert.assertTrue(isColumnSorted(zoneNameCells));
 		}
-		Assert.assertTrue("Links to countries with unsorted zones: "
-						+ failedItems.toString(), failedItems.size() == 0);
+
 	}
 
 	@Test
 	public void test_2_geoZonesAreSorted() {
-		List<String> failedItems = new ArrayList<>();
-
 		List<String> links = new ArrayList<>();
 		driver.get("http://localhost/litecart/admin/?app=geo_zones&doc=geo_zones");
 		List<WebElement> countryNameCells = driver.findElements(By.cssSelector
@@ -85,12 +77,10 @@ public class TimeZones {
 			driver.get(link);
 			List<WebElement> zoneNameCells = driver.findElements(By.cssSelector
 							("table#table-zones td:nth-child(3) option[selected]"));
-			if (!isColumnSorted(zoneNameCells)) {
-				failedItems.add(link);
-			}
+			Assert.assertTrue(isColumnSorted(zoneNameCells));
+
 		}
-		Assert.assertTrue("Links to countries with unsorted zones: "
-						+ failedItems.toString(), failedItems.size() == 0);
+
 	}
 
 
