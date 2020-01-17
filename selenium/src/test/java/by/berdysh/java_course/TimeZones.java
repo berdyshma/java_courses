@@ -34,7 +34,8 @@ public class TimeZones {
 	@Test
 	public void test_1A_countriesAreSorted() {
 		driver.get("http://localhost/litecart/admin/?app=countries&doc=countries");
-		List<WebElement> nameCells = driver.findElements(By.cssSelector("form[name=countries_form] tr.row td:nth-child(5) a"));
+		List<WebElement> nameCells = driver.findElements
+						(By.cssSelector("form[name=countries_form] tr.row td:nth-child(5) a"));
 
 		Assert.assertTrue(isColumnSorted(nameCells));
 
