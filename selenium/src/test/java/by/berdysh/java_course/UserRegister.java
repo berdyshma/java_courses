@@ -15,6 +15,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
+
 public class UserRegister {
 	private WebDriver driver;
 	private WebDriverWait wait;
@@ -27,18 +29,19 @@ public class UserRegister {
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 
-		@Test
+	@Test
 	public void task_11() {
 		driver.get("http://localhost/litecart/");
 
 		//Creating a new account
 		driver.findElement(By.cssSelector("form[name=login_form] a")).click();
-
+		WebElement element = wait.until(presenceOfElementLocated(By.cssSelector("input[name=firstname]")));
 		driver.findElement(By.cssSelector("input[name=firstname]")).sendKeys("Name");
 		driver.findElement(By.cssSelector("input[name=lastname]")).sendKeys("Surname");
 		driver.findElement(By.cssSelector("input[name=address1]")).sendKeys("470 Street");
 		driver.findElement(By.cssSelector("input[name=postcode]")).sendKeys("12345");
 		driver.findElement(By.cssSelector("input[name=city]")).sendKeys("Los Angeles");
+
 
 		WebElement dropdown = driver.findElement(By.cssSelector("select[name=country_code]"));
 		Select country = new Select(dropdown);
@@ -59,6 +62,7 @@ public class UserRegister {
 
 		//Log out
 		driver.findElement(By.cssSelector("div#box-account li:nth-child(4) a")).click();
+		WebElement element3 = wait.until(presenceOfElementLocated(By.cssSelector("input[name=email]")));
 
 		//Log in
 		driver.findElement(By.cssSelector("input[name=email]")).sendKeys(email);
@@ -67,7 +71,7 @@ public class UserRegister {
 
 		//Have we logged in successfully?
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector("div.notice.success"))));
-		Assert.assertTrue((driver.findElement(By.cssSelector("div.notice.success")).getText().contains("You are now logged in as Charles Bukowski")));
+		Assert.assertTrue((driver.findElement(By.cssSelector("div.notice.success")).getText().contains("You are now logged in as Name Surname")));
 	}
 
 	private String randomEmail() {
