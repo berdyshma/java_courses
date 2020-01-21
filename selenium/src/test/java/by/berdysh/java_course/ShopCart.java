@@ -1,12 +1,12 @@
 package by.berdysh.java_course;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -37,13 +37,17 @@ public class ShopCart {
 
 		//remove all items
 		driver.findElement(By.cssSelector("div#cart-wrapper a.link")).click();
+		WebElement element = wait.until(presenceOfElementLocated(By.cssSelector("a.inact")));
 		List<WebElement> items = driver.findElements(By.cssSelector("a.inact"));
-		for (int i = 0; i < (items.size() - 1); i++) {
-			items.get(i).click();
+		Assert.assertEquals(3, items.size());
+		while (!items.isEmpty()) {
+			items.get(0).click();
 			WebElement table = driver.findElement(By.cssSelector("table.dataTable"));
 			driver.findElement(By.cssSelector("button[name=remove_cart_item]")).click();
 			wait.until(stalenessOf(table));
+			items = driver.findElements(By.cssSelector("a.inact"));
 		}
+		driver.findElement(By.cssSelector("button[name=remove_cart_item]")).click();
 	}
 
 	private void addItem(Integer expectedQuantityOfItems) {
