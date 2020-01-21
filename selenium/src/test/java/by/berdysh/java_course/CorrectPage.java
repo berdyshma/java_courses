@@ -47,7 +47,7 @@ public class CorrectPage {
 		String colorRegularPriceOnMainPage = duck.findElement(By.cssSelector
 						("s[class=regular-price]")).getCssValue("color");
 		List<Integer> rgb = parseColor(colorRegularPriceOnMainPage);
-		if ((rgb.get(0) != rgb.get(1)) || (rgb.get(0) != rgb.get(2))) {
+		if ((!rgb.get(0).equals(rgb.get(1)) || !(rgb.get(0).equals(rgb.get(2)) ))) {
 			failedItems.add("Regular price is not grey on the Main page");
 		}
 
@@ -63,15 +63,15 @@ public class CorrectPage {
 		String colorCampaignPriceOnMainPage = duck.findElement(By.cssSelector
 						("strong[class=campaign-price]")).getCssValue("color");
 		rgb = parseColor(colorCampaignPriceOnMainPage);
-		if ((rgb.get(1) != 0) || (rgb.get(2) != 0)) {
+		if ((!rgb.get(1).equals(0) || (!rgb.get(2).equals(0)))) {
 			failedItems.add("Campaign price is not red on the Main page");
 		}
 
 		//Is Campaign price bigger than Regular price on the Main page?
 		String sizeRegularPriceString = duck.findElement(By.cssSelector
-						("s[class=regular-price]")).getCssValue("fontSize");
+						("s[class=regular-price]")).getCssValue("font-size");
 		String sizeCampaignPriceString = duck.findElement(By.cssSelector
-						("strong[class=campaign-price]")).getCssValue("fontSize");
+						("strong[class=campaign-price]")).getCssValue("font-size");
 		String a = sizeRegularPriceString.replace("px", "");
 		String b = sizeCampaignPriceString.replace("px", "");
 		float regularPrice = Float.parseFloat(a);
@@ -122,7 +122,7 @@ public class CorrectPage {
 		String colorRegularPrice = driver.findElement(By.cssSelector
 						("s[class=regular-price]")).getCssValue("color");
 		rgb = parseColor(colorRegularPrice);
-		if ((rgb.get(0) != rgb.get(1)) || (rgb.get(0) != rgb.get(2))) {
+		if ((!rgb.get(0).equals(rgb.get(1))) || (!rgb.get(0).equals(rgb.get(2)))) {
 			failedItems.add("Regular price is not grey on the Own page");
 		}
 
@@ -138,15 +138,15 @@ public class CorrectPage {
 		String colorCampaignPrice = driver.findElement(By.cssSelector
 						("strong[class=campaign-price]")).getCssValue("color");
 		rgb = parseColor(colorCampaignPrice);
-		if ((rgb.get(1) != 0) || (rgb.get(2) != 0)) {
+		if ((!rgb.get(1).equals(0) || (!rgb.get(2).equals(0)))) {
 			failedItems.add("Campaign price is not red on the Own page");
 		}
 
 		//Is Campaign price bigger than Regular price on the Own page?
 		String sizeRegularPrice = driver.findElement(By.cssSelector
-						("s[class=regular-price]")).getCssValue("fontSize");
+						("s[class=regular-price]")).getCssValue("font-size");
 		String sizeCampaignPrice = driver.findElement(By.cssSelector
-						("strong[class=campaign-price]")).getCssValue("fontSize");
+						("strong[class=campaign-price]")).getCssValue("font-size");
 
 		String c = sizeRegularPriceString.replace("px", "");
 		String d = sizeCampaignPriceString.replace("px", "");
